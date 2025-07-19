@@ -1,6 +1,6 @@
-and_gate = class()
+or_gate = class()
 
-function and_gate:init(x_centroid , y_centroid , pin_gap , width)
+function or_gate:init(x_centroid , y_centroid , pin_gap , width)
     self.x_c = x_centroid
     self.y_c = y_centroid
     self.pin_gap = pin_gap
@@ -23,12 +23,12 @@ function and_gate:init(x_centroid , y_centroid , pin_gap , width)
     self.out_status = false
 end
 
-function and_gate:reset()
+function or_gate:reset()
     self.pin_u_status = false
     self.pin_d_status = false
 end
 
-function and_gate:checkClick(x, y)
+function or_gate:checkClick(x, y)
     print("Checking click at", x, y)
 
     local dx_u = x - self.pin_x
@@ -45,12 +45,12 @@ function and_gate:checkClick(x, y)
         self.pin_d_status = not self.pin_d_status
     end
 
-    self.out_status = self.pin_u_status and self.pin_d_status
+    self.out_status = self.pin_u_status or self.pin_d_status
 
 end
 
 
-function and_gate:color_update(status)
+function or_gate:color_update(status)
     if status then
         love.graphics.setColor(0 , 1, 0)  -- green
     else 
@@ -58,7 +58,7 @@ function and_gate:color_update(status)
     end
 end
 
-function and_gate:render()
+function or_gate:render()
 
     local gate_width = 60
     local gate_height = 100
@@ -71,6 +71,9 @@ function and_gate:render()
 
     love.graphics.arc("fill",  self.x_c, self.y_c, gate_height / 2, -math.pi/2, math.pi/2 , 50)
 
+    love.graphics.setColor(0, 0, 0)
+    love.graphics.arc("fill",  left, self.y_c, gate_height / 2, -math.pi/2, math.pi/2 , 50)
+
 
     self:color_update(self.pin_u_status)
     love.graphics.circle("fill", self.pin_x, self.pin_u_y, self.deb_rad)
@@ -79,7 +82,7 @@ function and_gate:render()
     love.graphics.circle("fill", self.pin_x, self.pin_d_y, self.deb_rad)
 
 
-    self.out_status = self.pin_u_status and self.pin_d_status
+    self.out_status = self.pin_u_status or self.pin_d_status
     self:color_update(self.out_status)
     love.graphics.circle("fill", self.pin_out_x, self.pin_out_y, self.deb_rad)
 
