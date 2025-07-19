@@ -9,7 +9,7 @@ function not_gate:init(x_centroid , y_centroid , width)
     self.connected_to = "nill" --for attachment purpose
 
     self.pin_i_status = false
-    self.deb_rad = 20
+    self.deb_rad = self.width/20
 
     self.pin_x = self.x_c - self.width / 2
     self.pin_y = self.y_c
@@ -49,8 +49,8 @@ end
 
 function not_gate:render()
 
-    local gate_width = 60
-    local gate_height = 100
+    local gate_width = self.width/4
+    local gate_height = self.width/2
     local left = self.x_c - gate_width / 2
     local top = self.y_c - gate_height / 2
 

@@ -12,7 +12,7 @@ function and_gate:init(x_centroid , y_centroid , pin_gap , width)
 
     self.pin_u_status = false
     self.pin_d_status = false
-    self.deb_rad = 20
+    self.deb_rad = self.width/20
 
     self.pin_x = self.x_c - self.width / 2
     self.pin_u_y = self.y_c - self.pin_gap / 2
@@ -60,8 +60,8 @@ end
 
 function and_gate:render()
 
-    local gate_width = 60
-    local gate_height = 100
+    local gate_width = self.width/4
+    local gate_height = self.width/2
     local left = self.x_c - gate_width / 2
     local top = self.y_c - gate_height / 2
 

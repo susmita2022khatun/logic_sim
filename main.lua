@@ -11,10 +11,10 @@ WINDOW_HEIGTH = 800
 VIRTUAL_WINDOW_WIDTH = 1600
 VIRTUAL_WINDOW_HEIGHT = 800
 
-CENT_X = 500
+CENT_X = 1400
 CENT_Y = 400
-PIN_GAP = 100  -- give some more gap
-WIDTH = 200
+PIN_GAP = 50  -- give some more gap
+WIDTH = 100
 
 
 function love.load()
@@ -34,6 +34,7 @@ function love.load()
     x , y , s = connect_gate_load_to(andgate)
     notgate = not_gate:new(x, y,  WIDTH)
     notgate.connected_to = s
+    
 end
 
 
