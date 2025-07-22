@@ -6,7 +6,8 @@ function not_gate:init(x_centroid , y_centroid , width)
     self.width = width
     self.pin_num = 1
     self.pin_i_av = true --for attachment purpose
-    self.connected_to = "nill" --for attachment purpose
+    self.connected_to = nil --for attachment purpose
+    self.connected_from = nil
 
     self.pin_i_status = false
     self.deb_rad = self.width/20

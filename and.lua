@@ -8,15 +8,16 @@ function and_gate:init(x_centroid , y_centroid , pin_gap , width)
     self.pin_num = 2
     self.pin_u_av = true --for attachment purpose 
     self.pin_d_av = true --for attachment purpose
-    self.connected_to = "nill" --for attachment purpose
+    self.connected_to = nil --for attachment purpose
+    self.connected_from = nil
 
     self.pin_u_status = false
     self.pin_d_status = false
     self.deb_rad = self.width/20
 
     self.pin_x = self.x_c - self.width / 2
-    self.pin_u_y = self.y_c - self.pin_gap / 2
-    self.pin_d_y = self.y_c + self.pin_gap / 2
+    self.pin_u_y = self.y_c - self.pin_gap / 2 +self.deb_rad
+    self.pin_d_y = self.y_c + self.pin_gap / 2 -self.deb_rad
     self.pin_out_x = self.x_c + self.width / 2
     self.pin_out_y = self.y_c
 
