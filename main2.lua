@@ -102,7 +102,7 @@ end
 
 -- sample = {}
 -- AST Printer (for debugging)
-function print_ast(node, indent , sample)
+function print_ast(node, indent , sample )
     indent = indent or 0
     local prefix = string.rep("  ", indent)
 
@@ -122,6 +122,8 @@ function print_ast(node, indent , sample)
         print(prefix .. "UNKNOWN NODE")
     end
 end
+
+--in this parser traverse the gate formation
 
 -- MAIN
 local input_expr = "(A AND (NOT B)) OR (C AND D)" -- Change this as needed

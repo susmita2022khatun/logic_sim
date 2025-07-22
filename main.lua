@@ -20,7 +20,6 @@ WIDTH = 100
 EP = 2
 --DEBUG
 local EXPRESSION = "(((A AND (NOT B)) OR (C AND D)) AND ((E OR F) OR (NOT G)))"
-
 local gates = {}
 
 function build_circuit(node, indent, sample, gates, prev_gate_node, stat)
